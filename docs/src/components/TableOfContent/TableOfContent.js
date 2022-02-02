@@ -30,6 +30,14 @@ const TableOfContent = (props) => {
     }
   }, []);
 
+  const isInViewport = (element) => {
+      const rect = element.getBoundingClientRect();
+      return (
+        (rect.top-60)>= 0 &&
+        rect.bottom+25 <= (window.innerHeight || document.documentElement.clientHeight)
+      );
+    }
+
   const onScrollHandler = (e, idList) => {
     // Don't set the active index based on scroll if a link was just clicked
     if (clickedRef.current) {
@@ -46,6 +54,11 @@ const TableOfContent = (props) => {
         if (top > 0 && viewportHeight > top - height) {
           setActive(item);
           resultFound = true;
+          let elementactive = document.getElementsByClassName('active-link')[0];
+          let flag = isInViewport(elementactive);
+          if(!flag){
+            // elementactive.scrollIntoView();
+          }
         };
       };
     });
@@ -105,7 +118,7 @@ const TableOfContent = (props) => {
   }
 
   return (
-    <div className='d-flex flex-column right-nav-container overflow-hidden'>
+    <div className='d-flex flex-column right-nav-container'>
       {navItems && navItems.length ? (
         <>
           <Subheading

@@ -260,7 +260,7 @@ const Layout = ({
 
             <Column
               size={3}
-              className="pb-6 in-page-nav position-sticky"
+              className="pb-6 in-page-nav position-sticky jump-nav"
             >
               <TableOfContent
                 is404Page={is404}

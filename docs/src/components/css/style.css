@@ -95,3 +95,8 @@ table td {
 .docblock-argstable td {
   border: none;
 }
+
+.jump-nav {
+  overflow-y: scroll;
+  height: 100vh;
+}
