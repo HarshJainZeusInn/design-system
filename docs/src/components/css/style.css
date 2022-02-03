@@ -22,7 +22,18 @@
 
 .page-scroll {
   overflow-y: scroll;
-  height: 100vh;
+}
+
+.scroll-y {
+  overflow-y: scroll;
+}
+
+.overflow-x{
+  overflow-x: hidden;
+}
+
+.inherit-height {
+  height: inherit;
 }
 
 .list {

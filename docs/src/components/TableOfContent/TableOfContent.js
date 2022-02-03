@@ -58,7 +58,12 @@ const TableOfContent = (props) => {
           let flag = isInViewport(elementactive);
           console.log(flag);
           if(!flag){
-            //  elementactive.scrollIntoView();
+            const rect = elementactive.getBoundingClientRect();
+            if(rect.bottom+25 > (window.innerHeight || document.documentElement.clientHeight))
+             {elementactive.scrollIntoView(false);}
+            else{
+              elementactive.scrollIntoView(true);
+            }
           }
         };
       };

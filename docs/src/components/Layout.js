@@ -218,7 +218,7 @@ const Layout = ({
         relativePagePath={relativePagePath}
       />
       <Row style={{ height: 'calc(100vh - 48px)' }}>
-        <Column size={2} className='page-scroll'>
+        <Column size={2} className='overflow-x scroll-y inherit-height'>
           <LeftNav
             is404Page={is404}
             relativePagePath={relativePagePath}
@@ -227,10 +227,10 @@ const Layout = ({
             frontmatter={frontmatter}
           />
         </Column>
-        <Column size={10} className={`${showAnimation() ? "page-animation" : ''} vh-100 `}>
+        <Column size={10} className={`${showAnimation() ? "page-animation" : ''} inherit-height`}>
 
-          <Row>
-            <Column className="px-12 py-8 min-vh-100 page-scroll" size={9}>
+          <Row className='inherit-height scroll-y'>
+            <Column className="px-12 py-8 page-scroll inherit-height" size={9} style={{}}>
               {!relativePagePath.includes('components') && (
                 <Container
                   pageTitle={pageTitle}
@@ -262,7 +262,7 @@ const Layout = ({
             </Column>
             <Column
               size={3}
-              className="pb-6 in-page-nav position-sticky page-scroll"
+              className="pb-6 in-page-nav scroll-y inherit-height"
             >
               <TableOfContent
                 is404Page={is404}
@@ -270,7 +270,7 @@ const Layout = ({
                 pageTitle={pageTitle}
                 location={rest.location}
               />
-        </Column>
+            </Column>
            
           {isToastActive && (
             <Toast
