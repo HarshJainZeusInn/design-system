@@ -25,6 +25,14 @@
   scroll-behavior: smooth;
 }
 
+.scroll-y {
+  overflow-y: scroll;
+}
+
+.inherit-height {
+  height:inherit;
+}
+
 .list {
   margin-top: var(--spacing-m);
 }
