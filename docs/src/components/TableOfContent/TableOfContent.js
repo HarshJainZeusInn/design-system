@@ -56,8 +56,9 @@ const TableOfContent = (props) => {
           resultFound = true;
           let elementactive = document.getElementsByClassName('active-link')[0];
           let flag = isInViewport(elementactive);
+          console.log(flag);
           if(!flag){
-            // elementactive.scrollIntoView();
+            //  elementactive.scrollIntoView();
           }
         };
       };

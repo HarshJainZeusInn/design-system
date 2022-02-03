@@ -218,16 +218,19 @@ const Layout = ({
         relativePagePath={relativePagePath}
       />
       <Row style={{ height: 'calc(100vh - 48px)' }}>
-        <LeftNav
-          is404Page={is404}
-          relativePagePath={relativePagePath}
-          pageTitle={pageTitle}
-          showMobile={showMobile}
-          frontmatter={frontmatter}
-        />
-        <Column className={`${showAnimation() ? "page-animation" : ''} page-scroll h-100`}>
+        <Column size={2} className='page-scroll'>
+          <LeftNav
+            is404Page={is404}
+            relativePagePath={relativePagePath}
+            pageTitle={pageTitle}
+            showMobile={showMobile}
+            frontmatter={frontmatter}
+          />
+        </Column>
+        <Column size={10} className={`${showAnimation() ? "page-animation" : ''} vh-100 `}>
+
           <Row>
-            <Column className="px-12 py-8 min-vh-100" size={9}>
+            <Column className="px-12 py-8 min-vh-100 page-scroll" size={9}>
               {!relativePagePath.includes('components') && (
                 <Container
                   pageTitle={pageTitle}
@@ -257,10 +260,9 @@ const Layout = ({
                 </ComponentsContainer>
               )}
             </Column>
-
             <Column
               size={3}
-              className="pb-6 in-page-nav position-sticky jump-nav"
+              className="pb-6 in-page-nav position-sticky page-scroll"
             >
               <TableOfContent
                 is404Page={is404}
@@ -268,8 +270,8 @@ const Layout = ({
                 pageTitle={pageTitle}
                 location={rest.location}
               />
-            </Column>
-          </Row>
+        </Column>
+           
           {isToastActive && (
             <Toast
               appearance='success'
@@ -279,7 +281,10 @@ const Layout = ({
             />
           )}
           <Footer relativePagePath={relativePagePath} />
+          </Row>
         </Column>
+        
+        
       </Row>
     </>
   );

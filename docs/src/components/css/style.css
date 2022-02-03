@@ -22,7 +22,7 @@
 
 .page-scroll {
   overflow-y: scroll;
-  scroll-behavior: smooth;
+  height: 100vh;
 }
 
 .list {
@@ -96,7 +96,3 @@ table td {
   border: none;
 }
 
-.jump-nav {
-  overflow-y: scroll;
-  height: 100vh;
-}
