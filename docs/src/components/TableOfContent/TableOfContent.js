@@ -14,9 +14,10 @@ const TableOfContent = (props) => {
 
   useEffect(() => {
     const navIds = getIds(navItems);
-    document.body.addEventListener('scroll', (e) => onScrollHandler(e, navIds), true);
+    let element = document.getElementsByClassName("center-container")[0];
+    element.addEventListener('scroll', (e) => onScrollHandler(e, navIds), true);
     return () => {
-      document.body.removeEventListener('scroll', (e) => onScrollHandler(e, navIds), true);
+      element.removeEventListener('scroll', (e) => onScrollHandler(e, navIds), true);
     }
   }, []);
 
@@ -32,16 +33,19 @@ const TableOfContent = (props) => {
 
   const isInViewport = (element) => {
     const rect = element.getBoundingClientRect();
-    return (
-      (rect.top-60)>= 0 &&
-      rect.bottom+25 <= (window.innerHeight || document.documentElement.clientHeight)
-    );
+    let flag = (rect.top-60)>= 0 && rect.bottom+25 <= (window.innerHeight || document.documentElement.clientHeight);
+    if (flag) return 0;
+    else if(rect.bottom+25 > (window.innerHeight || document.documentElement.clientHeight)) return 1;
+    else return 2;
   }
 
   const onScrollHandler = (e, idList) => {
     // Don't set the active index based on scroll if a link was just clicked
     if (clickedRef.current) {
       return;
+    }
+    if(e.target.classList.contains("in-page-nav")){
+       return;
     }
     const headerHeight = document.getElementById('mainHeader').getBoundingClientRect().height;
     const viewportHeight = document.body.offsetHeight - headerHeight;
@@ -56,17 +60,10 @@ const TableOfContent = (props) => {
           resultFound = true;
           let elementactive = document.getElementsByClassName('active-link')[0];
           let flag = isInViewport(elementactive);
-          console.log(flag);
-          if(!flag){
-            const rect = elementactive.getBoundingClientRect();
-            if(rect.bottom+25 > (window.innerHeight || document.documentElement.clientHeight))
-             {elementactive.scrollIntoView(false);}
-            else{
-              elementactive.scrollIntoView(true);
-            }
-          }
-        };
-      };
+          if(flag === 1) elementactive.scrollIntoView(false);
+          else if(flag === 2) elementactive.scrollIntoView(true);
+        }
+      }
     });
   };
 

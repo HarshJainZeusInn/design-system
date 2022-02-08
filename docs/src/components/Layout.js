@@ -225,7 +225,7 @@ const Layout = ({
           showMobile={showMobile}
           frontmatter={frontmatter}
         />
-        <Column className={`${showAnimation() ? "page-animation" : ''} page-scroll h-100`}>
+        <Column className={`${showAnimation() ? "page-animation" : ''} page-scroll h-100 center-container`}>
           <Row>
             <Column className="px-12 py-8 " size={9}>
               {!relativePagePath.includes('components') && (
