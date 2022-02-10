@@ -225,9 +225,9 @@ const Layout = ({
           showMobile={showMobile}
           frontmatter={frontmatter}
         />
-        <Column className={`${showAnimation() ? "page-animation" : ''} page-scroll h-100`}>
+        <Column className={`${showAnimation() ? "page-animation" : ''} scroll-y h-100`} >
           <Row>
-            <Column className="px-12 py-8 min-vh-100" size={9}>
+            <Column className="px-12 py-8 scroll-y" size={9} style={{height:"100vh"}} id="main-container">
               {!relativePagePath.includes('components') && (
                 <Container
                   pageTitle={pageTitle}
@@ -260,7 +260,8 @@ const Layout = ({
 
             <Column
               size={3}
-              className="pb-6 in-page-nav position-sticky"
+              className="pb-6 in-page-nav position-sticky scroll-y"
+              style={{ height: 'calc(100vh - 48px)' }}
             >
               <TableOfContent
                 is404Page={is404}
