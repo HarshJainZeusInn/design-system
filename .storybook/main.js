@@ -5,18 +5,18 @@ module.exports = {
     "../core/components/**/*.story.@(js|jsx|ts|tsx)"
   ],
   "addons": [
-    /**
-     * Adds following addons 
-     * Docs
-     * Controls
-     * Actions
-     * Viewport
-     * Backgrounds
-     * Toolbars & globals
-     * https://storybook.js.org/docs/react/essentials/introduction
-     */
-    "@storybook/addon-essentials",
-    '@storybook/addon-a11y',
+  /**
+   * Adds following addons 
+   * Docs
+   * Controls
+   * Actions
+   * Viewport
+   * Backgrounds
+   * Toolbars & globals
+   * https://storybook.js.org/docs/react/essentials/introduction
+   */
+  "@storybook/addon-essentials",
+   '@storybook/addon-a11y',
     "@storybook/addon-knobs",
   ],
   typescript: {
@@ -47,5 +47,8 @@ module.exports = {
       title: "MDS Helpers",
       url: "https://innovaccer.github.io/mds-helpers/"
     }
-   }
-}
+  },
+  core: {
+    builder: "webpack5"
+  }
+};
