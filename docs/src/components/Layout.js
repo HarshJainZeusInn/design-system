@@ -196,6 +196,7 @@ const Layout = ({
     Logos: (props) => <Logos {...props} />,
     Rectangle: (props) => <Rectangle {...props} />,
     Colors: (props) => <Colors {...props} />,
+    blockquote: (props) => <div className='blockquote'><blockquote>{props.children}</blockquote></div>
   };
 
   const showAnimation = () => {

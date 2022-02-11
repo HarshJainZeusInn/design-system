@@ -95,3 +95,7 @@ table td {
 .docblock-argstable td {
   border: none;
 }
+
+.blockquote {
+  background-color: var(--primary-lightest);
+}
