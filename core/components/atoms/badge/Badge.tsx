@@ -18,7 +18,7 @@ export interface BadgeProps extends BaseProps {
   children: React.ReactText;
 }
 
-export const Badge = (props: BadgeProps) => {
+export const Badge = (props: any) => {
   const { appearance, children, subtle, className } = props;
 
   const baseProps = extractBaseProps(props);

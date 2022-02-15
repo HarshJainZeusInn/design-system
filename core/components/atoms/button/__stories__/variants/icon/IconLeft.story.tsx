@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import Button, { ButtonSize } from '../../../Button';
+import Button from '../../../Button';
 import Text from '@/components/atoms/text';
 
 // CSF format story
@@ -11,7 +11,7 @@ export const iconLeft = () => {
   const loading = false;
   const iconAlign = 'left';
 
-  const size: ButtonSize[] = ['tiny', 'regular', 'large'];
+  const size = ['tiny', 'regular', 'large'];
 
   const icon = text('icon', 'refresh');
   const children = text('children', 'Button');

@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { text } from '@storybook/addon-knobs';
-import Icon, { IconType } from '../../index';
+import Icon from '../../index';
 import Text from '@/components/atoms/text';
 
 // CSF format story
 export const type = () => {
-  const types: IconType[] = ['filled', 'outlined', 'round', 'two-tone', 'sharp'];
+  const types: any[] = ['filled', 'outlined', 'round', 'two-tone', 'sharp'];
 
   const name = text('Name', 'assignment');
   return (

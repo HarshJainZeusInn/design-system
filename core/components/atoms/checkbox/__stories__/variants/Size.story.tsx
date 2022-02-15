@@ -1,12 +1,11 @@
 import * as React from 'react';
 import { text } from '@storybook/addon-knobs';
 import Checkbox from '../../index';
-import { CheckBoxSize } from '../../Checkbox';
 import Text from '@/components/atoms/text';
 
 // CSF format story
 export const size = () => {
-  const sizes: CheckBoxSize[] = ['tiny', 'regular'];
+  const sizes = ['tiny', 'regular'];
   const label = text('label', 'Checkbox');
   return (
     <div className="d-flex">

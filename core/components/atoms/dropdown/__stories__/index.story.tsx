@@ -41,12 +41,12 @@ export const all = () => {
 
   const loadersCount = number('Loaders Count', 10);
 
-  const getSearchedOptions = (options: any, searchTerm: string) => {
-    const result = options.filter((option: any) => option.label.toLowerCase().includes(searchTerm.toLowerCase()));
+  const getSearchedOptions = (options, searchTerm) => {
+    const result = options.filter((option) => option.label.toLowerCase().includes(searchTerm.toLowerCase()));
     return result;
   };
 
-  const fetchOptions = (searchTerm: string) => {
+  const fetchOptions = (searchTerm) => {
     const searchedOptions = searchTerm ? getSearchedOptions(dropdownOptions, searchTerm) : dropdownOptions;
     return new Promise<any>((resolve) => {
       window.setTimeout(() => {
@@ -59,16 +59,16 @@ export const all = () => {
     });
   };
 
-  const customLabel = (selectedLength: number, totalOptions?: number) => {
+  const customLabel = (selectedLength, totalOptions) => {
     const optionsLength = totalOptions ? totalOptions : dropdownOptions.length;
     return `${selectedLength} of ${optionsLength} are selected`;
   };
 
-  const onChangeHandler = (selectedValues: any[]) => {
+  const onChangeHandler = (selectedValues) => {
     return action(`selected values length: ${selectedValues}`)();
   };
 
-  const onClose = (selectedValues: any[]) => {
+  const onClose = (selectedValues) => {
     return action(`dropdown closed with selected values: ${selectedValues}`)();
   };
 

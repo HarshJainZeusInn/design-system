@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import { Text, Tooltip, Icon } from '@/index';
 import { BaseProps, extractBaseProps } from '@/utils/types';
 import { TooltipProps } from '@/index.type';
-import { AccentAppearance } from '@/common.type';
 
 export type AvatarSize = 'regular' | 'tiny';
 
@@ -11,7 +10,7 @@ export interface AvatarProps extends BaseProps {
   /**
    * Color of the `Avatar`
    */
-  appearance?: AccentAppearance;
+  appearance?: any;
   /**
    * **Only first 2 characters are rendered (SOON TO BE DEPRECATED)**
    */

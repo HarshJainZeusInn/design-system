@@ -16,7 +16,7 @@ export const all = () => {
 
   const disabled = boolean('disabled', false);
 
-  const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeHandler = (event) => {
     updateKnob('checked', event.target.checked);
     updateKnob('indeterminate', event.target.indeterminate);
     return action(`onChange: ${event.target.checked}`)();

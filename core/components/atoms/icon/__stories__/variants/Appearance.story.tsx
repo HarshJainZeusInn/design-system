@@ -4,7 +4,7 @@ import { Icon, Text } from '@/index';
 
 // CSF format story
 export const Appearance = () => {
-  const appearances = [
+  const appearances: any[] = [
     ['primary', 'primary_dark', 'primary_lighter'],
     ['alert', 'alert_dark', 'alert_lighter'],
     ['success', 'success_dark', 'success_lighter'],

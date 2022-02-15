@@ -7,11 +7,11 @@ import { Uncontrolled, Controlled } from '../_common_/types';
 
 // CSF format story
 export const disabledOption = () => {
-  const onClose = (options: any) => {
+  const onClose = (options) => {
     return action(`dropdown closed with selected values: ${options}`)();
   };
 
-  const onChangeHandler = (selectedValues: any[]) => {
+  const onChangeHandler = (selectedValues) => {
     return action(`selected values length: ${selectedValues}`)();
   };
 

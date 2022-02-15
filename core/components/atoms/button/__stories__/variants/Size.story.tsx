@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import Button, { Size } from '../../Button';
+import Button from '../../Button';
 import Text from '@/components/atoms/text';
 
 // CSF format story
@@ -10,7 +10,7 @@ export const size = () => {
   const expanded = false;
   const loading = false;
 
-  const sizes: Size[] = ['tiny', 'regular', 'large'];
+  const sizes = ['tiny', 'regular', 'large'];
 
   const children = text('children', 'Button');
 
