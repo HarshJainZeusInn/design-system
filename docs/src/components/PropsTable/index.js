@@ -118,25 +118,25 @@ const StoryComp = ({
             }}
           />
         }
-        <div 
+        <div
           className='align-self-end'
           onMouseLeave={()=>{setTooltipActive(false);setTooltipName(copyMessage)}}
-           ref={ref}
+          ref={ref}
         >
-          <Tooltip 
-            open={isTooltipActive} 
-            tooltip={tooltipName} 
+          <Tooltip
+            open={isTooltipActive}
+            tooltip={tooltipName}
             position="bottom"
             appendToBody={false}
-            boundaryElement={ref} 
+            boundaryElement={ref}
           >
             <Icon
-            name='content_copy'
-            size={20}
-            appearance='white'
-            onClick={onClick}
-            className='align-self-center cursor-pointer'
-          />
+              name='content_copy'
+              size={20}
+              appearance='white'
+              onClick={onClick}
+              className='align-self-center cursor-pointer'
+            />
           </Tooltip>
         </div>
       </div>
@@ -163,7 +163,33 @@ const StoryComp = ({
     }
   };
 
-  const imports = React.useMemo(() => ({ ...DS }), []);
+  const action = (...args) => {
+    return console.log.bind(null, ['my custom action log: ', ...args]);
+  };
+
+  const convertToDate = (
+    d, format,
+    validators
+  ) => {
+    let dateVal;
+
+    if (d) {
+      if (typeof d === 'number') {
+        dateVal = new Date(d);
+      } else if (typeof d === 'string') {
+        return format ? translateToDate(format, d, validators) : undefined;
+      } else if (!(d instanceof Date)) {
+        const { year, month, date } = d;
+        dateVal = new Date(year, month, date, 0, 0, 0);
+      } else {
+        dateVal = d;
+      }
+    }
+
+    return dateVal;
+  };
+
+  const imports = React.useMemo(() => ({ ...DS, action, convertToDate }), []);
 
   return (
     <>
